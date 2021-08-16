@@ -1,5 +1,8 @@
-import React from 'react'
-import { View, StyleSheet, Text, TextInput } from "react-native"
+import React from 'react';
+import { View, StyleSheet, Text, TextInput } from "react-native";
+import {Picker} from '@react-native-picker/picker';
+import {AntDesign } from '@expo/vector-icons';
+
 
 const AddressForm = () => {
     return (
@@ -15,19 +18,19 @@ const AddressForm = () => {
           Property ID
         </Text>
         <TextInput
-          secureTextEntry={true}
+          // secureTextEntry={true}
           style={styles.field}
-
-          placeholder="Password"
+          label="Property ID"
+          placeholder="Property ID"
         />
                <Text>
-          Title
+          Address
         </Text>
         <TextInput 
           style={styles.field}
-          label="Email"
-          placeholder="Email" />
-          
+          label="Address"
+          placeholder="Address" />  
+       
       </View>
     )
   }

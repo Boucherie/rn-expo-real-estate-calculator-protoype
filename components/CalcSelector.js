@@ -42,6 +42,7 @@ const CalcSelector = () => {
       picker: {
         margin: 5,
         padding: -5,
+        width: 275,
         borderWidth: 10,
         borderColor: '#B7D4FD', 
         borderRadius: 25,
