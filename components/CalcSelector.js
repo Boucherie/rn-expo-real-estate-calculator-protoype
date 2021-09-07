@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { View, StyleSheet, Text } from "react-native"
 import {Picker} from '@react-native-picker/picker';
 
-
-
 const CalcSelector = () => {
     const [selectedCalc, setSelectedCalc] = useState(false);
 
@@ -24,7 +22,6 @@ const CalcSelector = () => {
         <Picker.Item label="Net Operationg Income" value="other" />
         <Picker.Item label="Flip Analysis" value="other" />
         <Picker.Item label="Rehab Analysis" value="other" />
-
         <Picker.Item label="Down Payment Assistance" value="other" />
         <Picker.Item label="Mortgage Calculator" value="other" />
         <Picker.Item label="Proforma" value="other" />

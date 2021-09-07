@@ -4,14 +4,18 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, ScrollView, Switch } from 'react-native';
-import {AntDesign, Entypo, Ionicons, FontAwesome, Octicons } from '@expo/vector-icons';
+import {AntDesign, Entypo, Ionicons, FontAwesome, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CalcSelector from './components/CalcSelector';
 import AddressForm from './components/AddressForm';
 import ExpenseForm from './components/ExpenseForm';
 import CashFlowInputForm from './components/CashFlowInputForm';
+import ResidentialInputs from './components/ResidentialInputs';
+import UnitInfoTable from './components/UnitInfoTable';
+import SummaryTable from './components/SummaryTable';
 
 const gray = '#555'
 const black = '#112211'
+const white = '#e2e9f9'
 
 const Neumorph = ({ children, size, style }) => {
   return (
@@ -36,16 +40,16 @@ const BrandGuide = ({navigation}) => {
           <View style={{marginHorizontal: 32, marginTop: 32}}>
             <View style={styles.topContainer}>
               <Neumorph size={48}>
-                <AntDesign name="arrowleft" size={32} color={gray}/>
+                <AntDesign name="arrowleft" size={32} color={white}/>
               </Neumorph>
               <Neumorph size={48}>
-                <FontAwesome name="plus" size={40} color={gray} />
+                <FontAwesome name="plus" size={40} color={white} />
               </Neumorph>
               <Neumorph size={48}>
-                <Entypo name='menu' size={32} color={gray} />
+                <Entypo name='menu' size={32} color={white} />
               </Neumorph>
               <Neumorph size={48} >
-                <AntDesign name='arrowright' size={32} color={black}
+                <AntDesign name='arrowright' size={32} color={white}
                 onPress={() =>
                   navigation.navigate('Property Info')} />
               </Neumorph>
@@ -55,7 +59,7 @@ const BrandGuide = ({navigation}) => {
           </View>
           <View style={styles.topContainer}>
                 <Neumorph size={120} style={{marginVertical:20}}>
-                <Image source={require('./assets/stock-property-image.jpeg')} style={styles.propertyIcon}></Image>
+                <FontAwesome5 name="warehouse" size={60} color="white" />
               </Neumorph>
                   <Text style={{width: '40%'}}>Commercial Property, ID #123456</Text>
             </View>
@@ -76,12 +80,12 @@ const AddressFormScreen = ({navigation}) => {
       <View style={{marginHorizontal: 32, marginTop: 32}}>
         <View style={styles.topContainer}>
           <Neumorph size={48}>
-            <AntDesign name="arrowleft" size={32} color={gray}
+            <AntDesign name="arrowleft" size={32} color={white}
               onPress={() =>
                 navigation.navigate('Brand Guide')} />
           </Neumorph>
           <Neumorph size={48} >
-            <AntDesign name='arrowright' size={32} color={black}
+            <AntDesign name='arrowright' size={32} color={white}
             onPress={() =>
               navigation.navigate('Flow Selection')} />
           </Neumorph>
@@ -92,21 +96,21 @@ const AddressFormScreen = ({navigation}) => {
       
       <View style={styles.topContainer}>
         <Text>Upload Image</Text>  
-        <Octicons name="primitive-dot" size={24} color= {black}/>
-        <Octicons name="primitive-dot" size={24} color= {black} />
+        <Octicons name="primitive-dot" size={24} color= {white}/>
+        <Octicons name="primitive-dot" size={24} color= {white} />
         <Neumorph>
-          <AntDesign name='upload' size={32}/>   
+          <AntDesign name='upload' size={32} color={white}/>   
         </Neumorph>
       </View>
         <View style={styles.topContainer}>
           <Neumorph size={100} style={{marginVertical:20}}>
-            <Image source={require('./assets/stock-property-image.jpeg')} style={styles.propertyIcon}></Image>
+                <FontAwesome5 name="warehouse" size={50} color="white" />
           </Neumorph>
           <Text style={{width: '40%'}}>cp-id-123456.jpg</Text>
         </View>
         <View style={styles.topContainer}>
           <Neumorph size={60} >
-            <AntDesign name='arrowright' size={60} color={black}
+            <AntDesign name='arrowright' size={60} color={white}
             onPress={() =>
               navigation.navigate('Property Details')} />
           </Neumorph>
@@ -123,12 +127,12 @@ function SelectCalculatorScreen({navigation}) {
     <View style={styles.container}>
       <View style={styles.topContainer}>
           <Neumorph size={48}>
-            <AntDesign name="arrowleft" size={32} color={gray}
+            <AntDesign name="arrowleft" size={32} color={white}
               onPress={() =>
                 navigation.navigate('Property Info')} />
           </Neumorph>
           <Neumorph size={48} >
-            <AntDesign name='arrowright' size={32} color={black}
+            <AntDesign name='arrowright' size={32} color={white}
             onPress={() =>
               navigation.navigate('Headwaters')} />
           </Neumorph>
@@ -138,7 +142,7 @@ function SelectCalculatorScreen({navigation}) {
       <CalcSelector enabled={false} />
       </View>
       <Neumorph size={60} >
-        <AntDesign name='arrowright' size={60} color={black}
+        <AntDesign name='arrowright' size={48} color={white}
         onPress={() =>
           navigation.navigate('Headwaters')} />
       </Neumorph>
@@ -152,15 +156,16 @@ function CashFlowInputsScreen({navigation}) {
       <View style={styles.topContainer}>     
 
         <Neumorph size={48}>
-          <AntDesign name="arrowleft" size={32} color={gray}
+          <AntDesign name="arrowleft" size={32} color={white}
             onPress={() =>
               navigation.navigate('Flow Selection')} />
         </Neumorph>
         <Neumorph size={48} >
-          <AntDesign name='arrowright' size={32} color={black}
+          <AntDesign name='arrowright' size={32} color={white}
           onPress={() =>
             navigation.navigate('Property Details')} />
         </Neumorph>
+        
       </View>
       <ScrollView>
 
@@ -175,8 +180,13 @@ function CashFlowInputsScreen({navigation}) {
           <Text style={{width: '40%'}}>commercial-property-id-123456.jpg</Text>
         </View> */}
         <View style={styles.topContainer}>
+          <Neumorph size={60}>
+          <Ionicons name="md-calculator" size={50} color={white} />
+
+          </Neumorph>
+          <Text>Speedy Price Finder           Continue</Text>
           <Neumorph size={60} >
-            <AntDesign name='arrowright' size={60} color={black}
+            <AntDesign name='arrowright' size={50} color={white}
             onPress={() =>
               navigation.navigate('Property Details')} />
           </Neumorph>
@@ -199,17 +209,18 @@ function CashFlowPropertyStatsScreen({navigation}) {
       <View style={styles.topContainer}>
      
         <Neumorph size={48}>
-          <AntDesign name="arrowleft" size={32} color={gray}
+          <AntDesign name="arrowleft" size={32} color={white}
             onPress={() =>
               navigation.navigate('Headwaters')} />
         </Neumorph>
         <Neumorph size={48} >
-          <AntDesign name='arrowright' size={32} color={black}
+          <AntDesign name='arrowright' size={32} color={white}
           onPress={() =>
             navigation.navigate('Intake')} />
         </Neumorph>
       </View>
       <Text style={{textAlign: 'center', marginBottom: 5}}>Next, let's take a look at the dimensions and type of use.</Text>
+            <Text>Gross Rent (if known)</Text>
             <TextInput></TextInput>
             {/* Square footage, Gross rent if available */}
       <View style={styles.topContainer}>
@@ -231,10 +242,11 @@ function CashFlowPropertyStatsScreen({navigation}) {
       </View>
             {/* if value isEnabled ? <ResidentialInputs/> className visible : <CommercialInputs />  */}
         </View>
-      <View style={{witdh: 200, height: 400, marginTop: 5, backgroundColor: 'gray'}}>      
-      <Text>Summary to that point; All Figures Annual (enter additional income, losses)</Text>
-      
-</View>
+      <View style={{witdh: 200, height: 400, marginTop: 5, backgroundColor: 'white'}}>      
+        <Text>Summary to that point; All Figures Annual (enter additional income, losses)</Text>
+        <UnitInfoTable/>
+        <ResidentialInputs/>
+      </View>
       </SafeAreaView>
     </View>
   );
@@ -245,12 +257,12 @@ function CashFlowIncome({navigation}) {
     <View style={styles.container}>
             <View style={styles.topContainer}>
         <Neumorph size={48}>
-          <AntDesign name="arrowleft" size={32} color={gray}
+          <AntDesign name="arrowleft" size={32} color={white}
             onPress={() =>
               navigation.navigate('Property Details')} />
         </Neumorph>
         <Neumorph size={48} >
-          <AntDesign name='arrowright' size={32} color={black}
+          <AntDesign name='arrowright' size={32} color={white}
           onPress={() =>
             navigation.navigate('Outflow')} />
         </Neumorph>
@@ -265,12 +277,12 @@ function CashFlowExpenses({navigation}) {
     <View style={styles.container}>
             <View style={styles.topContainer}>
         <Neumorph size={48}>
-          <AntDesign name="arrowleft" size={32} color={gray}
+          <AntDesign name="arrowleft" size={32} color={white}
             onPress={() =>
               navigation.navigate('Intake')} />
         </Neumorph>
         <Neumorph size={48} >
-          <AntDesign name='arrowright' size={32} color={black}
+          <AntDesign name='arrowright' size={32} color={white}
           onPress={() =>
             navigation.navigate('Summary')} />
         </Neumorph>
@@ -279,7 +291,7 @@ function CashFlowExpenses({navigation}) {
       <View style={styles.topContainer}>
         <ExpenseForm/>
         <Neumorph size={48} >
-        <FontAwesome name="plus" size={40} color={gray} />
+        <FontAwesome name="plus" size={40} color={white} />
       </Neumorph>
       </View>
     </View>
@@ -293,16 +305,28 @@ function CashFlowSummary({navigation}) {
         <Neumorph size={48}>
           <AntDesign name="arrowleft" size={32} color={gray}
             onPress={() =>
-              navigation.navigate('Intake')} />
+              navigation.navigate('Outflow')} />
         </Neumorph>
         <Neumorph size={48} >
-          <AntDesign name='arrowright' size={32} color={black}
+          <AntDesign name='arrowright' size={32} color={white}
           // onPress={() =>
           //   navigation.navigate('Intake')} create PDF and share
             />
         </Neumorph>
       </View>
-      <Text>Summary</Text>
+      <Text style={{marginTop: 5}}>Summary</Text>
+      <View style={styles.topContainer}>
+        <SummaryTable />
+        
+      </View>
+      <View style={styles.topContainer}>
+
+        <Neumorph>
+        <AntDesign name="export" size={32} color={white} />
+        </Neumorph>
+        </View>
+        <Text style={{marginTop: 5}}> Share to PDF</Text>
+
     </View>
   );
 }
@@ -329,7 +353,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DEE9FD',
+    backgroundColor: '#ccdfff',
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
@@ -381,13 +405,13 @@ const styles = StyleSheet.create({
     shadowColor: '#B7C4DD'
   },
   inner: {
-    backgroundColor: '#A5C9FD',
+    backgroundColor: '#828489',
     alignItems: 'center',
-    color: black,
+    color: white,
     overflow: 'hidden',
     elevation: 1,
     justifyContent: 'center',
-    borderColor: '#B7D4FD', 
-    borderWidth: 3,
+    borderColor: '#a1a3a7', 
+    borderWidth: 1,
   },
 });
